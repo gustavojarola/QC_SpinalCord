@@ -1,2 +1,2 @@
 # QC_SpinalCord
-Automated Quality Check based on Deep-learning algorithms for spinal cord imaging segmentation
+Automated Quality Control based on Deep-learning algorithms for spinal cord imaging segmentation
