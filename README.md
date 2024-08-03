@@ -40,7 +40,7 @@ First of all, the user should clone this repository content by typing the follow
 git clone https://github.com/gustavojarola/QC_SpinalCord.git
 ```  
 
-Once you built the Singularity or Apptainer image  
+Once you cloned the content, please built the Singularity or Apptainer image inside of the QC_SpinalCord folder following the command below   
 
 ```bash
 singularity build qc_spinalcord.sif docker://art2mri/qc_spinalcord:1.0
@@ -52,7 +52,7 @@ or
 apptainer build qc_spinalcord.sif docker://art2mri/qc_spinalcord:1.0
 ```  
 
-You are able to generate the results by typing the command below.
+You are now able to generate the results by following the command below.  
 
 ```bash
 singularity run --nv \
