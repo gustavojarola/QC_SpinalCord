@@ -24,7 +24,7 @@ You are able to generate the results, by the following command
 
 ```bash
 docker run -it --rm --gpus all \
--v /path/to/images_folder:/home/QC_pipeline/image \    
+-v __/path/to/images_folder__:/home/QC_pipeline/image \    
 -v /path/to/masks_folder:/home/QC_pipeline/mask \
 -e MPLCONFIGDIR=/home/QC_pipeline/temp/matplotlib \
 --user $(id -u):$(id -g) art2mri/qc_spinalcord:1.0
