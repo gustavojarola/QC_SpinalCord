@@ -32,7 +32,7 @@ docker run -it --rm --gpus all \
 
 If you do not have an integrated GPU, simply remove the GPU flag **--gpus all** from the command.  
 
-##Singularity/Apptainer   
+## Singularity/Apptainer   
 
 Once you built the Singularity or Apptainer image  
 
