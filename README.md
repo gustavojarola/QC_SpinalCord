@@ -7,6 +7,8 @@ You should have two folders: one with all the .nii.gz images and another with al
 
 The results will be generated within your image folder, a /Results folder will be created with two files, a .txt and a .pdf, both containing the segmentation results according to the **Figure 1** below.  
 
+!["pdf-results"](img/pdf-results.png)  
+
 It's important to note that in some cases, it may generate a 'failed' result even for correct segmentations (~3% of images in our tests), so it's important to check the .pdf file to verify if the segmentation really failed. The .pdf file contains the image with the labeling.
 
 Images with a 'correct' result are indeed correct, making it unnecessary to verify them. This pipeline can help save effort and speed up the QC checking process, and we hope it will be useful to you!
