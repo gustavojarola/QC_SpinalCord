@@ -30,16 +30,32 @@ docker run -it --rm --gpus all \
 --user $(id -u):$(id -g) art2mri/qc_spinalcord:1.0
 ```  
 
-Replace the highlighted parts in blue by the real path of your image and mask folders.
+If you do not have an integrated GPU, simply remove the GPU flag **--gpus all** from the command.  
 
-If you do not have an integrated GPU, simply remove the GPU flag --gpus all from the command.
+##Singularity/Apptainer   
 
-Singularity/Apptainer: 
+Once you built the Singularity or Apptainer image  
 
-To build the image from the Docker image: singularity build qc_spinalcord.sif docker-daemon://art2mri/qc_spinalcord:1.0
+```bash
+singularity build qc_spinalcord.sif docker-daemon://art2mri/qc_spinalcord:1.0
+```
 
-To run and generate the results: singularity run --nv -B /path/to/images_folder:/home/QC_pipeline/image -B  /path/to/masks_folder:/home/QC_pipeline/mask --env MPLCONFIGDIR=/home/QC_pipeline/temp/matplotlib qc_spinalcord.sif
+or 
 
-The same notes mentioned for Docker apply to Singularity as well. If you are using Apptainer, just run the same commands, substituting 'singularity' with 'apptainer'.
+```bash
+apptainer build qc_spinalcord.sif docker-daemon://art2mri/qc_spinalcord:1.0
+```  
 
-We would like to receive your feedback if possible, to know the accuracy rate of the QC_pipeline on your dataset. In our tests, we achieved 97.8% accuracy.
+You are able to generate the results by typing the following command  
+
+```bash
+singularity run --nv \
+-B /path/to/images_folder:/home/QC_pipeline/image \  #replace the /path/to/images_folder by the real path of your images folder
+-B /path/to/masks_folder:/home/QC_pipeline/mask \    #replace the /path/to/masks_folder by the real path of your masks folder
+--env MPLCONFIGDIR=/home/QC_pipeline/temp/matplotlib \
+qc_spinalcord.sif
+```  
+
+If you are using Apptainer, run the same command but substituting 'singularity' with 'apptainer'.  
+
+In our tests, we achieved 97.8% accuracy for the labeling classification.  
