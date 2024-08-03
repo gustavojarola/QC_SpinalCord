@@ -20,12 +20,12 @@ Once you pulled the Docker image
 docker pull art2mri/qc_spinalcord:1.0
 ```
 
-You are able to generate the results, by the following command  
+You are able to generate the results by typing the following command  
 
 ```bash
 docker run -it --rm --gpus all \
--v /path/to/images_folder:/home/QC_pipeline/image \    #replace the `/path/to/images_folder` by the real path of your images folder
--v /path/to/masks_folder:/home/QC_pipeline/mask \      #replace the `/path/to/masks_folder` by the real path of your masks folder
+-v /path/to/images_folder:/home/QC_pipeline/image \    #replace the /path/to/images_folder by the real path of your images folder
+-v /path/to/masks_folder:/home/QC_pipeline/mask \      #replace the /path/to/masks_folder by the real path of your masks folder
 -e MPLCONFIGDIR=/home/QC_pipeline/temp/matplotlib \    
 --user $(id -u):$(id -g) art2mri/qc_spinalcord:1.0
 ```  
