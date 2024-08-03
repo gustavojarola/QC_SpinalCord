@@ -34,13 +34,13 @@ If you do not have an integrated GPU, simply remove the GPU flag **--gpus all** 
 
 ## Singularity/Apptainer  
 
-First of all, the user should clone this repository content by typing the following command  
+First of all, clone this repository content by the following command  
 
 ```bash
 git clone https://github.com/gustavojarola/QC_SpinalCord.git
 ```  
 
-Once you cloned the content, please built the Singularity or Apptainer image inside of the QC_SpinalCord folder following the command below   
+Once you cloned the content, please rename the 'model.pth.zip' file at the QC_SpinalCord folder to 'model.pth' and then build the Singularity or Apptainer image inside of the QC_SpinalCord folder following the command below   
 
 ```bash
 singularity build qc_spinalcord.sif docker://art2mri/qc_spinalcord:1.0
