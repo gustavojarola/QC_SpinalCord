@@ -32,21 +32,27 @@ docker run -it --rm --gpus all \
 
 If you do not have an integrated GPU, simply remove the GPU flag **--gpus all** from the command.  
 
-## Singularity/Apptainer   
+## Singularity/Apptainer  
+
+First of all, the user should clone this repository content by typing the following command  
+
+```bash
+git clone https://github.com/gustavojarola/QC_SpinalCord.git
+```  
 
 Once you built the Singularity or Apptainer image  
 
 ```bash
-singularity build qc_spinalcord.sif docker-daemon://art2mri/qc_spinalcord:1.0
-```
+singularity build qc_spinalcord.sif docker://art2mri/qc_spinalcord:1.0
+```  
 
 or 
 
 ```bash
-apptainer build qc_spinalcord.sif docker-daemon://art2mri/qc_spinalcord:1.0
+apptainer build qc_spinalcord.sif docker://art2mri/qc_spinalcord:1.0
 ```  
 
-You are able to generate the results by typing the following command  
+You are able to generate the results by typing the command below.
 
 ```bash
 singularity run --nv \
