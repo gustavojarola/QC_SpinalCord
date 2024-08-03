@@ -14,13 +14,17 @@ It's important to note that in some cases, it may generate a 'failed' result eve
 Images with a 'correct' result are indeed correct, making it unnecessary to verify them. This pipeline can help save effort and speed up the QC checking process, and we hope it will be useful to you!
 
 ## Docker
-First, pull the Docker image:  
+Once you pulled the Docker image    
 
 ```bash
 docker pull art2mri/qc_spinalcord:1.0
 ```
 
-To generate the results, use the following command: docker run -it --rm --gpus all -v /path/to/images_folder:/home/QC_pipeline/image -v /path/to/masks_folder:/home/QC_pipeline/mask -e MPLCONFIGDIR=/home/QC_pipeline/temp/matplotlib --user $(id -u):$(id -g) art2mri/qc_spinalcord:1.0
+You are able to generate the results, by the following command  
+
+```bash
+docker run -it --rm --gpus all -v **/path/to/images_folder**:/home/QC_pipeline/image -v /path/to/masks_folder:/home/QC_pipeline/mask -e MPLCONFIGDIR=/home/QC_pipeline/temp/matplotlib --user $(id -u):$(id -g) art2mri/qc_spinalcord:1.0
+```
 
 Replace the highlighted parts in blue by the real path of your image and mask folders.
 
