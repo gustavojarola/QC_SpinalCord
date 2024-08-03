@@ -63,7 +63,17 @@ singularity exec --nv \
     --env MPLCONFIGDIR=/home/QC_pipeline/temp/matplotlib \
     qc_spinalcord.sif python3 /home/QC_pipeline/main.py
 ```  
+Where:  
 
+```bash
+singularity exec --nv \
+    --bind /path/to/images/folder:/home/QC_pipeline/image \ #'/path/to/images/folder' replace by the path of images folder
+    --bind /path/to/masks/folder:/home/QC_pipeline/mask \
+    --bind /path/to/QC_SpinalCord/output:/home/QC_pipeline/output \
+    --bind /path/to/QC_SpinalCord/:/home/QC_pipeline/temp \
+    --env MPLCONFIGDIR=/home/QC_pipeline/temp/matplotlib \
+    qc_spinalcord.sif python3 /home/QC_pipeline/main.py
+```  
 If you are using Apptainer, run the same command but substituting 'singularity' with 'apptainer'.  
 
 In our tests, we achieved 97.8% accuracy for the labeling classification.  
