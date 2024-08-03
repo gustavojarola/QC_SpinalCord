@@ -55,8 +55,14 @@ apptainer build qc_spinalcord.sif docker://art2mri/qc_spinalcord:1.0
 You are now able to generate the results by following the command below.  
 
 ```bash
-singularity exec --nv   --bind /path/to/images/folder:/home/QC_pipeline/image   --bind /path/to/masks/folder:/home/QC_pipeline/mask   --bind /path/to/QC_SpinalCord/output:/home/QC_pipeline/output   --bind /path/to/QC_SpinalCord/:/home/QC_pipeline/temp   --env MPLCONFIGDIR=/home/QC_pipeline/temp/matplotlib   qc_spinalcord.sif python3 /home/QC_pipeline/main.py
-```
+singularity exec --nv   \
+--bind /path/to/images/folder:/home/QC_pipeline/image   \
+--bind /path/to/masks/folder:/home/QC_pipeline/mask   \
+--bind /path/to/QC_SpinalCord/output:/home/QC_pipeline/output   \
+--bind /path/to/QC_SpinalCord/:/home/QC_pipeline/temp   \
+--env MPLCONFIGDIR=/home/QC_pipeline/temp/matplotlib   \
+qc_spinalcord.sif python3 /home/QC_pipeline/main.py
+```  
 
 If you are using Apptainer, run the same command but substituting 'singularity' with 'apptainer'.  
 
