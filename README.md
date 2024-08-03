@@ -52,7 +52,7 @@ or
 apptainer build qc_spinalcord.sif docker://art2mri/qc_spinalcord:1.0
 ```  
 
-You are now able to generate the results by following the command below.  
+You are now able to generate the results. Open a terminal inside of the QC_SpinalCord folder and follow the command below.  
 
 ```bash
 singularity exec --nv   \
