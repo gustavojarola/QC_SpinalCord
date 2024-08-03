@@ -67,10 +67,10 @@ Where:
 
 ```bash
 singularity exec --nv \
-    --bind `/path/to/images/folder`:/home/QC_pipeline/image \ #`/path/to/images/folder` -> replace by the path of images folder
-    --bind `/path/to/masks/folder`:/home/QC_pipeline/mask \     #`/path/to/images/folder` -> replace by the path of masks folder
-    --bind `/path/to/QC_SpinalCord/output`:/home/QC_pipeline/output \  #`/path/to/QC_SpinalCord/output` -> replace by the complete path to the output folder inside of QC_SpinalCord
-    --bind `/path/to/QC_SpinalCord`/:/home/QC_pipeline/temp \  #`/path/to/QC_SpinalCord` ->  replace by the complete path to the temp folder inside of QC_SpinalCord
+    --bind `/path/to/images/folder`:/home/QC_pipeline/image \ #/path/to/images/folder -> replace by the path of images folder
+    --bind `/path/to/masks/folder`:/home/QC_pipeline/mask \     #/path/to/images/folder -> replace by the path of masks folder
+    --bind `/path/to/QC_SpinalCord/output`:/home/QC_pipeline/output \  #/path/to/QC_SpinalCord/output -> replace by the complete path to the output folder inside of QC_SpinalCord
+    --bind `/path/to/QC_SpinalCord`/:/home/QC_pipeline/temp \  #/path/to/QC_SpinalCord ->  replace by the complete path to the temp folder inside of QC_SpinalCord
     --env MPLCONFIGDIR=/home/QC_pipeline/temp/matplotlib \   
     qc_spinalcord.sif python3 /home/QC_pipeline/main.py
 ```  
