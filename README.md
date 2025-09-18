@@ -32,15 +32,7 @@ docker run -it --rm --gpus all \
 
 If you do not have an integrated GPU, simply remove the GPU flag **--gpus all** from the command.  
 
-## Singularity/Apptainer  
-
-First of all, clone this repository content by the following command  
-
-```bash
-git clone https://github.com/gustavojarola/QC_SpinalCord.git
-```  
-
-Once you cloned the content, please **rename the 'model.pth.zip' file at the QC_SpinalCord folder to 'model.pth'** and then build the Singularity or Apptainer image inside of the QC_SpinalCord folder following the command below   
+## Singularity/Apptainer   
 
 ```bash
 singularity build qc_spinalcord.sif docker://art2mri/qc_spinalcord:5.0
@@ -55,25 +47,11 @@ apptainer build qc_spinalcord.sif docker://art2mri/qc_spinalcord:5.0
 You are now able to generate the results. Open a terminal inside of the QC_SpinalCord folder and follow the command below.  
 
 ```bash
-singularity exec --nv \
-    --bind /path/to/images/folder:/home/QC_pipeline/image \
-    --bind /path/to/masks/folder:/home/QC_pipeline/mask \
-    --bind /path/to/QC_SpinalCord/output:/home/QC_pipeline/output \
-    --bind /path/to/QC_SpinalCord/:/home/QC_pipeline/temp \
-    --env MPLCONFIGDIR=/home/QC_pipeline/temp/matplotlib \
-    qc_spinalcord.sif python3 /home/QC_pipeline/main.py
+singularity run \
+  --nv \
+  -B "/path/to/images:/home/QC_pipeline/image" \
+  -B "/path/to/mask:/home/QC_pipeline/mask" \
+  --env MPLCONFIGDIR=/home/QC_pipeline/temp/matplotlib \
+  qc_spinalcord.sif
 ```  
-Where:  
 
-```bash
-singularity exec --nv \
-    --bind `/path/to/images/folder`:/home/QC_pipeline/image \ #/path/to/images/folder -> replace by the path of images folder
-    --bind `/path/to/masks/folder`:/home/QC_pipeline/mask \     #/path/to/images/folder -> replace by the path of masks folder
-    --bind `/path/to/QC_SpinalCord/output`:/home/QC_pipeline/output \  #/path/to/QC_SpinalCord/output -> replace by the complete path to the output folder inside of QC_SpinalCord
-    --bind `/path/to/QC_SpinalCord`/:/home/QC_pipeline/temp \  #/path/to/QC_SpinalCord ->  replace by the complete path to the temp folder inside of QC_SpinalCord
-    --env MPLCONFIGDIR=/home/QC_pipeline/temp/matplotlib \   
-    qc_spinalcord.sif python3 /home/QC_pipeline/main.py
-```  
-If you are using Apptainer, run the same command but substituting 'singularity' with 'apptainer'.  
-
-In our tests, we achieved 97.8% accuracy for the labeling classification.  
