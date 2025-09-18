@@ -47,7 +47,7 @@ apptainer build qc_spinalcord.sif docker://art2mri/qc_spinalcord:5.0
 You are now able to generate the results. Open a terminal inside of the QC_SpinalCord folder and follow the command below.  
 
 ```bash
-singularity run \
+singularity exec \
   --nv \
   -B "/path/to/images:/home/QC_pipeline/image" \
   -B "/path/to/mask:/home/QC_pipeline/mask" \
