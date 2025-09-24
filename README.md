@@ -51,7 +51,8 @@ singularity exec \
   --nv \
   -B "/path/to/images:/home/QC_pipeline/image" \
   -B "/path/to/mask:/home/QC_pipeline/mask" \
-  --env MPLCONFIGDIR=/home/QC_pipeline/temp/matplotlib \
-  qc_spinalcord.sif
+  -B "/path/to/temp:/home/QC_pipeline/temp" \
+  --env MPLCONFIGDIR=/home/QC_pipeline/temp/matplotlib \  #maybe remove
+  qc_spinalcord.sif python3 /home/QC_pipeline/main.py
 ```  
 
