@@ -17,17 +17,17 @@ Images with a 'correct' result are indeed correct, making it unnecessary to veri
 Once you pulled the Docker image    
 
 ```bash
-docker pull art2mri/qc_spinalcord:5.0
+docker pull gustavomjarola/qc_spinalcord:5.0
 ```
 
 You are able to generate the results by typing the following command  
 
 ```bash
 docker run -it --rm --gpus all \
--v /path/to/images_folder:/home/QC_pipeline/image \    #replace the /path/to/images_folder by the real path of your images folder
--v /path/to/masks_folder:/home/QC_pipeline/mask \      #replace the /path/to/masks_folder by the real path of your masks folder
+-v "/path/to/images_folder:/home/QC_pipeline/image" \    #replace the /path/to/images_folder by the real path of your images folder
+-v "/path/to/masks_folder:/home/QC_pipeline/mask" \      #replace the /path/to/masks_folder by the real path of your masks folder
 -e MPLCONFIGDIR=/home/QC_pipeline/temp/matplotlib \    
---user $(id -u):$(id -g) art2mri/qc_spinalcord:5.0
+--user $(id -u):$(id -g) gustavomjarola/qc_spinalcord:5.0
 ```  
 
 If you do not have an integrated GPU, simply remove the GPU flag **--gpus all** from the command.  
@@ -35,13 +35,13 @@ If you do not have an integrated GPU, simply remove the GPU flag **--gpus all** 
 ## Singularity/Apptainer   
 
 ```bash
-singularity build qc_spinalcord.sif docker://art2mri/qc_spinalcord:5.0
+singularity build qc_spinalcord.sif docker://gustavomjarola/qc_spinalcord:5.0
 ```  
 
 or 
 
 ```bash
-apptainer build qc_spinalcord.sif docker://art2mri/qc_spinalcord:5.0
+apptainer build qc_spinalcord.sif docker://gustavomjarola/qc_spinalcord:5.0
 ```  
 
 You are now able to generate the results.   
